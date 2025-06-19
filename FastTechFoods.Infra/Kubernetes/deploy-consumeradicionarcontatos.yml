@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foodsinfra
+  namespace: monitoring
+  labels:
+    app: foodsinfra
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: foodsinfra
+  template:
+    metadata:
+      labels:
+        app: foodsinfra
+    spec:
+      containers:
+        - name: foodsinfra
+          image: b1tech/foodsinfra:latest
+          ports:
+            - containerPort: 8092
+            - containerPort: 8093
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
