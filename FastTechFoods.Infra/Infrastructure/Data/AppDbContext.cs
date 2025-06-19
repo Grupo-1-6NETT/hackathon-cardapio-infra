@@ -6,6 +6,6 @@ namespace Infrastructure.Data;
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
 
-    public DbSet<TEntity> GetSet<TEntity>() where TEntity : class, IKeyedModel =>
+    public DbSet<TEntity> GetSet<TEntity>() where TEntity : BaseEntity =>
         Set<TEntity>();
 }

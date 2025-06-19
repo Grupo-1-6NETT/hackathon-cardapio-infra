@@ -1,10 +1,10 @@
 ﻿using Core.Entities;
 
 namespace Infrastructure.Repository;
-public interface IRepository<T> where T: class, IKeyedModel
+public interface IRepository<T> where T: BaseEntity
 {
-    Task<T> Select(Guid id);
-    Task<T> Insert(T entity);
-    Task<T> Update(T entity);
-    Task<bool> Delete(Guid id);
+    Task<T> SelectAsync(Guid id);
+    Task<T> InsertAsync(T entity);
+    Task<T> UpdateAsync(T entity);
+    Task<bool> DeleteAsync(Guid id);
 }

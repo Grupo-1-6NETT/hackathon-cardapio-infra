@@ -1,10 +1,5 @@
 ﻿namespace Core.Entities;
-public class Categoria : IKeyedModel
-{    
-    public Guid Id { get; set; }
-    public string Nome { get; set; }
-    public DateTime DataCriacao { get; set; }
-    public DateTime DataAtualizacao { get; set; }
-    public Guid CriadoPor { get; set; }
-    public Guid AtualizadoPor { get; set; }
+public class Categoria : BaseEntity
+{       
+    public string Nome { get; set; } = string.Empty;
 }
