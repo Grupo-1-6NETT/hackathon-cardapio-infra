@@ -55,5 +55,6 @@ nunit-*.xml
 
 # VS
 .vs/
-/FastTechFoods.Infra/FastTechFoods.Infra/appsettings.Development.json
-/FastTechFoods.Infra/Consumer/Consumer.csproj.user
+/Cardapio.Infra/Consumer/Consumer.csproj.user
+/Cardapio.Infra/Infrastructure/Migrations
+/Cardapio.Infra/Consumer/appsettings.Development.json
