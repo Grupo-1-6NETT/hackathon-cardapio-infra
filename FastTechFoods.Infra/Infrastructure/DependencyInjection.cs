@@ -1,5 +1,4 @@
-﻿using Core.Entities;
-using Core.Options;
+﻿using Core.Options;
 using Infrastructure.Data;
 using Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -14,14 +13,12 @@ public static class DependencyInjection
     {
         services.AddDbContext<AppDbContext>((provider, options) =>
         {
-            options.UseNpgsql(provider.GetRequiredService<IOptionsSnapshot<ConnectionStringOptions>>().Value.DefaultConnection);
+            var connString = provider.GetRequiredService<IOptionsSnapshot<ConnectionStringOptions>>().Value.DefaultConnection;
+            options.UseNpgsql(connString);
         });
 
-        services.AddScoped<IRepository<Categoria>, Repository<Categoria>>();
-        services.AddScoped<IRepository<Cliente>, Repository<Cliente>>();
-        services.AddScoped<IRepository<Item>, Repository<Item>>();
-        services.AddScoped<IRepository<Pedido>, Repository<Pedido>>();
-        services.AddScoped<IRepository<PedidoItem>, Repository<PedidoItem>>();
+        services.AddScoped<ICategoriaRepository, CategoriaRepository>();        
+        services.AddScoped<IItemRepository, ItemRepository>();        
 
         return services;
     }

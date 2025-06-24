@@ -4,8 +4,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Infrastructure.Data;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
-{
-
-    public DbSet<TEntity> GetSet<TEntity>() where TEntity : BaseEntity =>
-        Set<TEntity>();
+{    
+    public DbSet<Categoria> Categorias { get; set; }    
+    public DbSet<Item> Items { get; set; }    
 }

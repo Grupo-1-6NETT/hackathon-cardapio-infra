@@ -57,3 +57,5 @@ nunit-*.xml
 .vs/
 /FastTechFoods.Infra/FastTechFoods.Infra/appsettings.Development.json
 /FastTechFoods.Infra/Consumer/Consumer.csproj.user
+/FastTechFoods.Infra/Infrastructure/Migrations
+/FastTechFoods.Infra/Consumer/appsettings.Development.json
