@@ -21,6 +21,7 @@ public class ItemRepository(AppDbContext context) : IItemRepository
     public async Task<Item> InsertAsync(Item entity)
     {
         entity.DataCriacao = DateTime.Now.ToUniversalTime();
+        entity.DataAtualizacao = DateTime.Now.ToUniversalTime();
         _entitySet.Add(entity);
         await context.SaveChangesAsync();        
         return entity;

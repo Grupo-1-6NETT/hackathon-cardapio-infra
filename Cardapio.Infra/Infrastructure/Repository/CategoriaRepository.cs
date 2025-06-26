@@ -21,6 +21,7 @@ public class CategoriaRepository(AppDbContext context) : ICategoriaRepository
     public async Task<Categoria> InsertAsync(Categoria entity)
     {
         entity.DataCriacao = DateTime.Now.ToUniversalTime();
+        entity.DataAtualizacao = DateTime.Now.ToUniversalTime();
         _entitySet.Add(entity);
         await context.SaveChangesAsync();        
         return entity;

@@ -1,7 +1,9 @@
-﻿using Core.Entities;
+﻿using MassTransit;
 
 namespace Consumer.Model;
 
+[MessageUrn("update-item-dto")]
+[EntityName("update-item-dto")]
 public class UpdateItemDto
 {
     public Guid Id { get; set; }
