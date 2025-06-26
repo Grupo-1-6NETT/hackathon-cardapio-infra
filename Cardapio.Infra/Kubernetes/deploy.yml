@@ -1,23 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: foodsinfra
+  name: cardapioinfra
   namespace: monitoring
   labels:
-    app: foodsinfra
+    app: cardapioinfra
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: foodsinfra
+      app: cardapioinfra
   template:
     metadata:
       labels:
-        app: foodsinfra
+        app: cardapioinfra
     spec:
       containers:
-        - name: foodsinfra
-          image: b1tech/foodsinfra:latest
+        - name: cardapioinfra
+          # todo: salvar imagem no dockerhub
+          # image: b1tech/cardapioinfra:latest 
           ports:
             - containerPort: 8092
             - containerPort: 8093

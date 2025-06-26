@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: foodsinfra
+  name: cardapioinfra
   namespace: monitoring
 spec:
   type: NodePort
   selector:
-    app: foodsinfra
+    app: cardapioinfra
   ports:
     - name: main
       port: 8092
