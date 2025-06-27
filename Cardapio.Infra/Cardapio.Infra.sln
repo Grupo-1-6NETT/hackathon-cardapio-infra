@@ -12,9 +12,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DA4EB324-9A8C-47BB-AF67-637BAD22BB7C}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
-		docker-compose.yml = docker-compose.yml
 		Kubernetes\deploy.yml = Kubernetes\deploy.yml
+		docker-compose.yml = docker-compose.yml
 		Dockerfile = Dockerfile
+		..\README.md = ..\README.md
 		Kubernetes\svc.yml = Kubernetes\svc.yml
 	EndProjectSection
 EndProject
