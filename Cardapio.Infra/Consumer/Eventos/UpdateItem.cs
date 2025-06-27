@@ -10,13 +10,14 @@ public class UpdateItem(IItemRepository itemRepository, ICategoriaRepository cat
     {
         var dto = context.Message;
 
-        var entity = new Item
-        {
-            Id = dto.Id,
-            Nome = dto.Nome ?? string.Empty,
-            Descricao = dto.Descricao ?? string.Empty,
-            Preco = dto.Preco
-        };
+        var entity = await itemRepository.SelectAsync(dto.Id) ?? new();
+
+        if (!string.IsNullOrEmpty(dto.Nome))
+            entity.Nome = dto.Nome;
+        if (!string.IsNullOrEmpty(dto.Descricao))
+            entity.Descricao = dto.Descricao;
+        if(dto.Preco != null)
+            entity.Preco = dto.Preco.Value;        
 
         if (!string.IsNullOrEmpty(dto.NomeCategoria))
         {
