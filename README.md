@@ -1,29 +1,29 @@
 # Cardapio Infra Consumer
 
-Este È um serviÁo consumidor desenvolvido em .NET Core 8 para gerenciar o cadastro de Card·pios. 
-Este projeto È parte da soluÁ„o para o Hackathon da Fase 5 do curso de pÛs graduaÁ„o 6NETT na FIAP.
+Este √© um servi√ßo consumidor desenvolvido em .NET Core 8 para gerenciar o cadastro de Card√°pios. 
+Este projeto √© parte da solu√ß√£o para o Hackathon da Fase 5 do curso de p√≥s gradua√ß√£o 6NETT na FIAP.
 
-## Õndice
-- [PrÈ-requisitos](#prÈ-requisitos)
-- [ConfiguraÁ„o do Projeto](#configuraÁ„o-do-projeto)
+## √çndice
+- [Pr√©-requisitos](#pr√©-requisitos)
+- [Configura√ß√£o do Projeto](#configura√ß√£o-do-projeto)
 - [Eventos](#eventos)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 
-## PrÈ-requisitos
+## Pr√©-requisitos
 
-- [Docker](https://www.docker.com/get-started/) e [Docker Compose](https://docs.docker.com/compose/install/) (necess·rio para executar o projeto)
+- [Docker](https://www.docker.com/get-started/) e [Docker Compose](https://docs.docker.com/compose/install/) (necess√°rio para executar o projeto)
 - [.NET SDK 8.0](https://dotnet.microsoft.com/download/dotnet/8.0) (somente para executar local)
 
-## ConfiguraÁ„o do Projeto
+## Configura√ß√£o do Projeto
 
-**1. Clone o repositÛrio:**
+**1. Clone o reposit√≥rio:**
 
    ```bash
-   git clone https://github.com/Grupo-1-6NETT/hackathon-cardapio-api
+   git clone https://github.com/Grupo-1-6NETT/hackathon-cardapio-infra
    cd Cardapio.Infra
    ```
 
-**2. Adicione configuraÁıes necess·rias
+**2. Adicione configura√ß√µes necess√°rias
 
 Adicione as credenciais do Postgres no appsettings do ambiente que estiver rodando.  
 Por exempo, em ambiente de desenvolvimento, adicione a propriedade em `appsettings.Development.json`.  
@@ -53,17 +53,17 @@ docker-compose up --build
 
 ---
 ## Eventos
-|Evento|Fila padr„o|DescriÁ„o|
+|Evento|Fila padr√£o|Descri√ß√£o|
 |---|---|---|
-|AddItem|additem|Adiciona um item no card·pio|
-|DeleteItem|deleteitem|Remove um item do card·pio|
-|UpdateItem|updateitem|Atualiza um item no card·pio|
+|AddItem|additem|Adiciona um item no card√°pio|
+|DeleteItem|deleteitem|Remove um item do card√°pio|
+|UpdateItem|updateitem|Atualiza um item no card√°pio|
 
 ---
 ## Tecnologias Utilizadas
-- **ASP.NET Core 8** - Framework principal para desenvolvimento do serviÁo
-- **Entity Framework Core** - ORM para manipulaÁ„o do banco de dados
+- **ASP.NET Core 8** - Framework principal para desenvolvimento do servi√ßo
+- **Entity Framework Core** - ORM para manipula√ß√£o do banco de dados
 - **Postgres** - Banco de dados
 - **RabbitMQ** - Message Broker
 - **MassTransit** - Transporte de mensagens
-- **Docker** - CriaÁ„o de conteiners
+- **Docker** - Cria√ß√£o de conteiners
