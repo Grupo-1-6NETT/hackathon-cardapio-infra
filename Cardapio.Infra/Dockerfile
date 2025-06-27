@@ -14,15 +14,13 @@ WORKDIR /src
 
 # Copia os arquivos .csproj primeiro para aproveitar o cache de camadas do Docker
 COPY ["Consumer/Consumer.csproj", "Consumer/"]
-COPY ["Core/Core.csproj", "Domain/"]
-COPY ["Infrastructure.csproj", "Infrastructure/"]
+COPY ["Core/Core.csproj", "Core/"]
+COPY ["Infrastructure/Infrastructure.csproj", "Infrastructure/"]
 
 RUN dotnet restore "Consumer/Consumer.csproj"
 
 # Copia o restante dos arquivos
-COPY ../Core/. ./.Core/
-COPY ../Infrastructure/. ./Infrastructureomain/
-COPY Consumer/. ./Consumer/
+COPY . .
 
 WORKDIR "/src/Consumer"
 RUN dotnet publish -c Release -o /app/publish  
