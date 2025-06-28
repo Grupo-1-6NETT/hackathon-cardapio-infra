@@ -1,4 +1,5 @@
 ﻿using Consumer.Model;
+using Core.Dto;
 using Core.Entities;
 using Infrastructure.Repository;
 using MassTransit;
@@ -10,23 +11,23 @@ public class UpdateItem(IItemRepository itemRepository, ICategoriaRepository cat
     {
         var dto = context.Message;
 
-        var entity = await itemRepository.SelectAsync(dto.Id) ?? new();
+        var itemDto = new ItemDto
+        {
+            Id = dto.Id,
+            Nome = dto.Nome,
+            Preco = dto.Preco,
+            Descricao = dto.Descricao,
+            Disponivel = dto.Disponivel            
+        };
 
-        if (!string.IsNullOrEmpty(dto.Nome))
-            entity.Nome = dto.Nome;
-        if (!string.IsNullOrEmpty(dto.Descricao))
-            entity.Descricao = dto.Descricao;
-        if(dto.Preco != null)
-            entity.Preco = dto.Preco.Value;        
-
-        if (!string.IsNullOrEmpty(dto.NomeCategoria))
+        if (!string.IsNullOrEmpty(dto.NomeCategoria) && !string.IsNullOrEmpty(dto.NomeCategoria))
         {
             var categoria = await categoriaRepository.GetByNomeAsync(dto.NomeCategoria);
             categoria ??= await categoriaRepository.InsertAsync(new Categoria { Nome = dto.NomeCategoria.Trim() });
 
-            entity.Categoria = categoria;
+            itemDto.CategoriaId = categoria.Id;
         }
 
-        await itemRepository.UpdateAsync(entity);
+        await itemRepository.UpdateAsync(itemDto);
     }
 }
